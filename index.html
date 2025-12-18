@@ -7,7 +7,7 @@
 <style>
   body{
     margin:0;
-    height:100vh;
+    min-height:100vh;
     font-family:Arial, sans-serif;
     text-align:center;
     color:white;
@@ -17,10 +17,11 @@
     background-size:cover;
     background-position:center;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
     overflow:hidden;
+    padding: 20px;
   }
 
   #contenido{
@@ -68,33 +69,28 @@
   }
 
   #youtubeWrapper{
-    position:fixed;
-    bottom:15px;
-    left:50%;
-    transform:translateX(-50%);
-    width:320px; /* tamaño visible grande */
-    height:180px; 
-    transition: all 0.6s ease;
-    z-index:10;
-    background-color: black;
-    border-radius: 10px;
-    overflow: hidden;
+    width:90%;
+    max-width:560px;
+    height:auto;
+    margin-top:30px; /* espacio debajo de las letras */
+    border-radius:10px;
+    overflow:hidden;
+    background-color:black;
   }
 
   iframe{
     width:100%;
-    height:100%;
-    aspect-ratio:16/9;
+    height:315px; /* tamaño fijo para PC */
     border:none;
   }
 
   h1{font-size:2em; text-shadow: 2px 2px 5px #000;}
-  p{font-size:1.2em; text-shadow: 1px 1px 3px #000;}
+  p{font-size:1.5em; text-shadow: 1px 1px 3px #000;}
 
   @media (max-width: 600px){
     h1{font-size:1.6em;}
-    p{font-size:1em;}
-    #youtubeWrapper{width:240px; height:135px;}
+    p{font-size:1.2em;}
+    iframe{height:200px;}
   }
 </style>
 </head>
@@ -107,60 +103,8 @@
   <p class="fade delay4">Nos vamos a París 🇫🇷❤️</p>
 </div>
 
-<!-- YouTube embebido centrado abajo -->
+<!-- Reproductor estático centrado -->
 <div id="youtubeWrapper">
   <iframe 
     id="youtubePlayer"
-    src="https://www.youtube.com/embed/MldGX_mbS-o?rel=0&controls=1"
-    allow="encrypted-media"
-    allowfullscreen>
-  </iframe>
-</div>
-
-<script>
-// Corazones flotando
-function createHearts(){
-  const colors = ['#ff4d6d','#ffb3c1','#ff99cc','#ff6666','#ff8080'];
-  setInterval(()=>{
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.fontSize = (Math.random()*25+15)+"px";
-    heart.style.color = colors[Math.floor(Math.random()*colors.length)];
-    heart.style.animationDuration = (Math.random()*3+4)+"s";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),7000);
-  }, 400);
-}
-createHearts();
-
-// Corazones siguen cursor o toque
-document.addEventListener('mousemove', e => {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "❤️";
-  heart.style.left = (e.clientX + Math.random()*30-15) + "px";
-  heart.style.top = (e.clientY + Math.random()*30-15) + "px";
-  heart.style.fontSize = (Math.random()*20+10)+"px";
-  heart.style.color = ['#ff4d6d','#ffb3c1','#ff99cc','#ff6666','#ff8080'][Math.floor(Math.random()*5)];
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),2000);
-});
-
-document.addEventListener('touchmove', e => {
-  const touch = e.touches[0];
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "❤️";
-  heart.style.left = (touch.clientX + Math.random()*30-15) + "px";
-  heart.style.top = (touch.clientY + Math.random()*30-15) + "px";
-  heart.style.fontSize = (Math.random()*20+10)+"px";
-  heart.style.color = ['#ff4d6d','#ffb3c1','#ff99cc','#ff6666','#ff8080'][Math.floor(Math.random()*5)];
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),2000);
-});
-</script>
-
-</body>
-</html>
+    src="https://www.youtub
