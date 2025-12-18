@@ -13,4 +13,61 @@
     background:
       linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
       url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34');
-    background-s
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  #tap{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:2.5em;
+    cursor:pointer;
+    background: rgba(0,0,0,0.5);
+  }
+  #contenido{
+    display:none;
+    padding:20px;
+  }
+  .fade{
+    opacity:0;
+    animation: fadeIn 2s forwards;
+  }
+  .delay1{animation-delay:0.5s;}
+  .delay2{animation-delay:2.5s;}
+  .delay3{animation-delay:4.5s;}
+  .delay4{animation-delay:6.5s;}
+  @keyframes fadeIn{to{opacity:1}}
+  h1{font-size:2.4em;}
+  p{font-size:1.4em;}
+</style>
+</head>
+<body>
+
+<div id="tap">Toca la pantalla ❤️</div>
+
+<div id="contenido">
+  <h1 class="fade delay1">Feliz aniversario mi amor ❤️</h1>
+  <p class="fade delay2">14 de Febrero de 2026</p>
+  <p class="fade delay3">Apunta la fecha en tu calendario</p>
+  <p class="fade delay4">Nos vamos a París 🇫🇷❤️</p>
+</div>
+
+<audio id="music">
+  <source src="https://files.catbox.moe/9v1n7e.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.getElementById("tap").addEventListener("click", function(){
+    document.getElementById("music").play();
+    this.style.display = "none";
+    document.getElementById("contenido").style.display = "block";
+  });
+</script>
+
+</body>
+</html>
