@@ -15,34 +15,30 @@
       url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34');
     background-size:cover;
     background-position:center;
+    overflow:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
+    cursor:pointer;
   }
-  #tap{
-    position:fixed;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    font-size:2em;
-    background: rgba(0,0,0,0.5);
-    gap:20px;
-  }
+
+  /* Botón de reproducción grande */
   #playButton{
-    font-size:1.5em;
-    padding:10px 20px;
+    font-size:2em;
+    padding:20px 40px;
     border:none;
-    border-radius:10px;
+    border-radius:15px;
     cursor:pointer;
     background-color:#ff4d6d;
     color:white;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
   }
+
   #contenido{
     display:none;
     padding:20px;
   }
+
   .fade{
     opacity:0;
     animation: fadeIn 2s forwards;
@@ -50,4 +46,69 @@
   .delay1{animation-delay:0.5s;}
   .delay2{animation-delay:2.5s;}
   .delay3{animation-delay:4.5s;}
-  .delay4{animation-delay:6.
+  .delay4{animation-delay:6.5s;}
+  @keyframes fadeIn{to{opacity:1}}
+  h1{font-size:2.4em;}
+  p{font-size:1.4em;}
+
+  /* Corazones flotando */
+  .heart{
+    position:absolute;
+    font-size:2em;
+    animation:floatUp 5s linear infinite;
+    pointer-events:none;
+    opacity:0.8;
+  }
+  @keyframes floatUp{
+    0% {transform: translateY(0) scale(1);}
+    50% {transform: translateY(-100px) scale(1.2);}
+    100% {transform: translateY(-200px) scale(1);}
+  }
+</style>
+</head>
+<body>
+
+<div id="tap">
+  <button id="playButton">Reproducir música 🎶</button>
+</div>
+
+<div id="contenido">
+  <h1 class="fade delay1">Feliz aniversario mi amor ❤️</h1>
+  <p class="fade delay2">14 de Febrero de 2026</p>
+  <p class="fade delay3">Apunta la fecha en tu calendario</p>
+  <p class="fade delay4">Nos vamos a París 🇫🇷❤️</p>
+</div>
+
+<audio id="music">
+  <source src="https://files.catbox.moe/9v1n7e.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const playButton = document.getElementById("playButton");
+const tap = document.getElementById("tap");
+const contenido = document.getElementById("contenido");
+const music = document.getElementById("music");
+
+playButton.addEventListener("click", function(){
+  music.play();
+  tap.style.display = "none";
+  contenido.style.display = "block";
+  createHearts();
+});
+
+// Función para crear corazones flotando
+function createHearts(){
+  setInterval(()=>{
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.color = "pink";
+    heart.innerHTML = "❤️";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),5000);
+  }, 500);
+}
+</script>
+
+</body>
+</html>
