@@ -3,110 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feliz Aniversario ❤️</title>
+<title>Para ti ❤️</title>
+
 <style>
-  body{
-    margin:0;
-    min-height:100vh;
-    font-family:Arial, sans-serif;
-    text-align:center;
-    color:white;
-    background:
-      linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-      url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1470&q=80');
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    padding: 20px;
-  }
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Arial, sans-serif;
+  text-align:center;
+  color:white;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1470&q=80');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  padding:20px;
+}
 
-  #contenido{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    z-index:2;
-    padding: 0 10px;
-  }
+#contenido{
+  max-width:900px;
+  z-index:2;
+}
 
-  .fade{
-    opacity:0;
-    transform: translateY(20px);
-    animation:fadeInUp 1.5s forwards;
-  }
-  .delay1{animation-delay:0.5s;}
-  .delay2{animation-delay:2s;}
-  .delay3{animation-delay:3.5s;}
-  .delay4{animation-delay:5s;}
+.fade{
+  opacity:0;
+  transform: translateY(20px);
+  animation:fadeInUp 1.5s forwards;
+}
 
-  @keyframes fadeInUp{
-    to{
-      opacity:1;
-      transform: translateY(0);
-    }
-  }
+.delay1{animation-delay:0.5s;}
+.delay2{animation-delay:2s;}
+.delay3{animation-delay:3.5s;}
+.delay4{animation-delay:5s;}
+.delay5{animation-delay:7s;}
+.delay6{animation-delay:9s;}
+.delay7{animation-delay:11s;}
 
-  .heart{
-    position:absolute;
-    font-size:2em;
-    pointer-events:none;
-    opacity:0.8;
-    animation:floatUp 5s linear infinite, sway 4s ease-in-out infinite;
+@keyframes fadeInUp{
+  to{
+    opacity:1;
+    transform: translateY(0);
   }
+}
 
-  @keyframes floatUp{
-    0% {transform: translateY(0) scale(1);}
-    50% {transform: translateY(-120px) scale(1.2);}
-    100% {transform: translateY(-250px) scale(1);}
-  }
+p{
+  font-size:1.2em;
+  line-height:1.6;
+  text-shadow:1px 1px 3px #000;
+  margin-bottom:15px;
+}
 
-  @keyframes sway{
-    0%, 100% {transform: translateX(0);}
-    50% {transform: translateX(15px);}
-  }
+h1{
+  font-size:2em;
+  text-shadow:2px 2px 5px #000;
+}
 
-  #youtubeWrapper{
-    width:90%;
-    max-width:560px;
-    height:auto;
-    margin-top:30px; /* espacio debajo de las letras */
-    border-radius:10px;
-    overflow:hidden;
-    background-color:black;
-  }
+.heart{
+  position:absolute;
+  font-size:2em;
+  pointer-events:none;
+  opacity:0.8;
+  animation:floatUp 5s linear infinite;
+}
 
-  iframe{
-    width:100%;
-    height:315px; /* tamaño fijo para PC */
-    border:none;
-  }
+@keyframes floatUp{
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-250px);}
+}
 
-  h1{font-size:2em; text-shadow: 2px 2px 5px #000;}
-  p{font-size:1.5em; text-shadow: 1px 1px 3px #000;}
+#youtubeWrapper{
+  width:90%;
+  max-width:560px;
+  margin-top:30px;
+  background:black;
+  border-radius:10px;
+  overflow:hidden;
+}
 
-  @media (max-width: 600px){
-    h1{font-size:1.6em;}
-    p{font-size:1.2em;}
-    iframe{height:200px;}
-  }
+iframe{
+  width:100%;
+  height:315px;
+  border:none;
+}
+
+@media (max-width:600px){
+  iframe{height:200px;}
+  p{font-size:1.05em;}
+}
 </style>
 </head>
+
 <body>
 
 <div id="contenido">
-  <h1 class="fade delay1">Feliz aniversario mi amor ❤️</h1>
-  <p class="fade delay2">14 de Febrero de 2026</p>
-  <p class="fade delay3">Apunta la fecha en tu calendario</p>
-  <p class="fade delay4">Nos vamos a París 🇫🇷❤️</p>
+
+<p class="fade delay1">
+Hoy, hará un año que nos conocimos, un año en el cual me siento un hombre muy afortunado por tenerte en mi vida.
+</p>
+
+<p class="fade delay2">
+Por eso me encanta hacerte detalles y complacerte en todo lo que pueda, aunque a veces sea una montaña rusa de emociones.
+</p>
+
+<p class="fade delay3">
+Eres alguien que me mantiene vivo y puede arreglar cualquier problema que tenga, a veces hasta sin hablar, solo con tu presencia.
+</p>
+
+<p class="fade delay4">
+Me das paz, alegría y amor. Quería volver a dejarte claro que te amo y... creo que ya va siendo hora de hacer un viaje juntos, ¿no crees? ❤️
+</p>
+
+<h1 class="fade delay5">Feliz aniversario mi amor ❤️</h1>
+
+<p class="fade delay6">14 de Febrero de 2026</p>
+<p class="fade delay7">Apunta la fecha en tu calendario</p>
+<p class="fade delay7">Nos vamos a París 🇫🇷❤️</p>
+
 </div>
 
-<!-- Reproductor estático centrado -->
+<!-- Reproductor fijo centrado abajo -->
 <div id="youtubeWrapper">
-  <iframe 
-    id="youtubePlayer"
+  <iframe
     src="https://www.youtube.com/embed/MldGX_mbS-o?rel=0&controls=1"
     allow="encrypted-media"
     allowfullscreen>
@@ -114,48 +136,16 @@
 </div>
 
 <script>
-// Corazones flotando aleatoriamente
-function createHearts(){
-  const colors = ['#ff4d6d','#ffb3c1','#ff99cc','#ff6666','#ff8080'];
-  setInterval(()=>{
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.fontSize = (Math.random()*25+15)+"px";
-    heart.style.color = colors[Math.floor(Math.random()*colors.length)];
-    heart.style.animationDuration = (Math.random()*3+4)+"s";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),7000);
-  }, 400);
-}
-createHearts();
-
-// Corazones siguen cursor o toque
-document.addEventListener('mousemove', e => {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "❤️";
-  heart.style.left = (e.clientX + Math.random()*30-15) + "px";
-  heart.style.top = (e.clientY + Math.random()*30-15) + "px";
-  heart.style.fontSize = (Math.random()*20+10)+"px";
-  heart.style.color = ['#ff4d6d','#ffb3c1','#ff99cc','#ff6666','#ff8080'][Math.floor(Math.random()*5)];
+// corazones flotando
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.bottom="0";
   document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),2000);
-});
-
-document.addEventListener('touchmove', e => {
-  const touch = e.touches[0];
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "❤️";
-  heart.style.left = (touch.clientX + Math.random()*30-15) + "px";
-  heart.style.top = (touch.clientY + Math.random()*30-15) + "px";
-  heart.style.fontSize = (Math.random()*20+10)+"px";
-  heart.style.color = ['#ff4d6d','#ffb3c1','#ff99cc','#ff6666','#ff8080'][Math.floor(Math.random()*5)];
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),2000);
-});
+  setTimeout(()=>heart.remove(),5000);
+},500);
 </script>
 
 </body>
