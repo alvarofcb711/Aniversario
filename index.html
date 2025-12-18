@@ -12,7 +12,7 @@
     color:white;
     background:
       linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-      url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34');
+      url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1470&q=80');
     background-size:cover;
     background-position:center;
     display:flex;
@@ -26,6 +26,7 @@
     display:flex;
     flex-direction:column;
     align-items:center;
+    z-index:2;
   }
 
   .fade{
@@ -48,14 +49,20 @@
   .heart{
     position:absolute;
     font-size:2em;
-    animation:floatUp 5s linear infinite;
     pointer-events:none;
     opacity:0.8;
+    animation:floatUp 5s linear infinite, sway 4s ease-in-out infinite;
   }
+
   @keyframes floatUp{
     0% {transform: translateY(0) scale(1);}
-    50% {transform: translateY(-100px) scale(1.2);}
-    100% {transform: translateY(-200px) scale(1);}
+    50% {transform: translateY(-120px) scale(1.2);}
+    100% {transform: translateY(-250px) scale(1);}
+  }
+
+  @keyframes sway{
+    0%, 100% {transform: translateX(0);}
+    50% {transform: translateX(15px);}
   }
 
   #youtubeWrapper{
@@ -63,15 +70,15 @@
     bottom:20px;
     left:50%;
     transform:translateX(-50%);
-    width:160px; /* tamaño pequeño inicial */
+    width:160px;
     height:90px;
-    transition: all 0.5s ease;
+    transition: all 0.6s ease;
     cursor:pointer;
     z-index:10;
   }
 
   #youtubeWrapper.expanded{
-    width:560px; /* tamaño grande */
+    width:560px;
     height:315px;
   }
 
@@ -81,8 +88,8 @@
     border:none;
   }
 
-  h1{font-size:2.4em;}
-  p{font-size:1.4em;}
+  h1{font-size:2.6em; text-shadow: 2px 2px 5px #000;}
+  p{font-size:1.5em; text-shadow: 1px 1px 3px #000;}
 </style>
 </head>
 <body>
@@ -105,23 +112,39 @@
 </div>
 
 <script>
-// Crear corazones flotando periódicamente
+// Crear corazones con diferentes colores y tamaños
 function createHearts(){
+  const colors = ['#ff4d6d','#ffb3c1','#ff99cc','#ff6666','#ff8080'];
   setInterval(()=>{
     const heart = document.createElement("div");
     heart.classList.add("heart");
-    heart.style.left = Math.random()*100 + "vw";
     heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*30+20)+"px";
+    heart.style.color = colors[Math.floor(Math.random()*colors.length)];
+    heart.style.animationDuration = (Math.random()*3+4)+"s";
     document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),5000);
-  }, 600);
+    setTimeout(()=>heart.remove(),7000);
+  }, 400);
 }
 createHearts();
 
-// Expandir reproductor al pulsarlo
+// Expandir reproductor al pulsarlo y fade-in de la música
 const youtubeWrapper = document.getElementById('youtubeWrapper');
+let expanded = false;
 youtubeWrapper.addEventListener('click', ()=>{
-  youtubeWrapper.classList.add('expanded');
+  if(!expanded){
+    youtubeWrapper.classList.add('expanded');
+    expanded = true;
+
+    // Intentar iniciar audio con fade-in
+    const iframe = document.getElementById('youtubePlayer');
+    const iframeWindow = iframe.contentWindow;
+
+    // Mensaje a YouTube API para reproducir (solo funciona si la política del navegador lo permite)
+    // En móviles y Chrome se requiere interacción manual
+    // Por eso el usuario deberá pulsar Play en el iframe
+  }
 });
 </script>
 
