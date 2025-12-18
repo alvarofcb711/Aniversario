@@ -25,6 +25,7 @@
   #contenido{
     opacity:0;
     animation:fadeIn 1s forwards 0.5s;
+    margin-bottom:150px; /* espacio para el video abajo */
   }
 
   .heart{
@@ -44,11 +45,16 @@
 
   iframe{
     position:fixed;
-    bottom:10px;
-    width:320px;
-    height:180px;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:560px;
+    height:315px;
     border:none;
   }
+
+  h1{font-size:2.4em;}
+  p{font-size:1.4em;}
 </style>
 </head>
 <body>
@@ -60,9 +66,9 @@
   <p>Nos vamos a París 🇫🇷❤️</p>
 </div>
 
-<!-- YouTube embebido para “Segundo amor” -->
+<!-- YouTube embebido grande y centrado abajo -->
 <iframe 
-  src="https://www.youtube.com/embed/aD0MhjYOsOY?rel=0&autoplay=0"
+  src="https://www.youtube.com/embed/aD0MhjYOsOY?rel=0&autoplay=0&controls=1"
   allow="autoplay; encrypted-media"
   allowfullscreen>
 </iframe>
