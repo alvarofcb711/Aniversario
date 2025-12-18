@@ -31,6 +31,7 @@
     background-color:#ff4d6d;
     color:white;
     box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    z-index:10;
   }
 
   #contenido{
@@ -66,9 +67,8 @@
 </head>
 <body>
 
-<div id="tap">
-  <button id="playButton">Reproducir música 🎶</button>
-</div>
+<!-- Botón visible para reproducir música -->
+<button id="playButton">🎶 Pulsa aquí para escuchar Milagro 🎶</button>
 
 <div id="contenido">
   <h1 class="fade delay1">Feliz aniversario mi amor ❤️</h1>
@@ -77,23 +77,17 @@
   <p class="fade delay4">Nos vamos a París 🇫🇷❤️</p>
 </div>
 
+<!-- Audio desde el repositorio -->
 <audio id="music">
   <source src="milagro.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const playButton = document.getElementById("playButton");
-const tap = document.getElementById("tap");
 const contenido = document.getElementById("contenido");
 const music = document.getElementById("music");
 
-playButton.addEventListener("click", function(){
-  music.play();
-  tap.style.display = "none";
-  contenido.style.display = "block";
-  createHearts();
-});
-
+// Función para crear corazones flotando
 function createHearts(){
   setInterval(()=>{
     const heart = document.createElement("div");
@@ -105,6 +99,14 @@ function createHearts(){
     setTimeout(()=>heart.remove(),5000);
   }, 500);
 }
+
+// Evento de clic en el botón para reproducir música y mostrar contenido
+playButton.addEventListener("click", function(){
+  music.play().catch(e=>console.log(e));
+  playButton.style.display = "none";
+  contenido.style.display = "block";
+  createHearts();
+});
 </script>
 
 </body>
