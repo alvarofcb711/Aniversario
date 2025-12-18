@@ -18,6 +18,7 @@
     display:flex;
     justify-content:center;
     align-items:center;
+    cursor:pointer;
   }
   #tap{
     position:fixed;
@@ -26,7 +27,6 @@
     justify-content:center;
     align-items:center;
     font-size:2.5em;
-    cursor:pointer;
     background: rgba(0,0,0,0.5);
   }
   #contenido{
@@ -62,11 +62,12 @@
 </audio>
 
 <script>
-  document.getElementById("tap").addEventListener("click", function(){
+  // Primer toque en cualquier parte de la página inicia la música
+  document.body.addEventListener("click", function(){
     document.getElementById("music").play();
-    this.style.display = "none";
+    document.getElementById("tap").style.display = "none";
     document.getElementById("contenido").style.display = "block";
-  });
+  }, { once: true });
 </script>
 
 </body>
