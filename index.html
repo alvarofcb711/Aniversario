@@ -15,43 +15,35 @@
       url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34');
     background-size:cover;
     background-position:center;
-    overflow:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    cursor:pointer;
-  }
-
-  #playButton{
-    font-size:2em;
-    padding:20px 40px;
-    border:none;
-    border-radius:15px;
-    cursor:pointer;
-    background-color:#ff4d6d;
-    color:white;
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
-    z-index:10;
-    margin-bottom:20px;
+    overflow:hidden;
   }
 
   #contenido{
-    display:none;
-    padding:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
   }
 
   .fade{
     opacity:0;
-    animation: fadeIn 2s forwards;
+    transform: translateY(20px);
+    animation:fadeInUp 1.5s forwards;
   }
   .delay1{animation-delay:0.5s;}
-  .delay2{animation-delay:2.5s;}
-  .delay3{animation-delay:4.5s;}
-  .delay4{animation-delay:6.5s;}
-  @keyframes fadeIn{to{opacity:1}}
-  h1{font-size:2.4em;}
-  p{font-size:1.4em;}
+  .delay2{animation-delay:2s;}
+  .delay3{animation-delay:3.5s;}
+  .delay4{animation-delay:5s;}
+
+  @keyframes fadeInUp{
+    to{
+      opacity:1;
+      transform: translateY(0);
+    }
+  }
 
   .heart{
     position:absolute;
@@ -66,22 +58,34 @@
     100% {transform: translateY(-200px) scale(1);}
   }
 
-  #music{
-    display:block;
-    margin-top:10px;
+  #youtubeWrapper{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:160px; /* tamaño pequeño inicial */
+    height:90px;
+    transition: all 0.5s ease;
+    cursor:pointer;
+    z-index:10;
   }
+
+  #youtubeWrapper.expanded{
+    width:560px; /* tamaño grande */
+    height:315px;
+  }
+
+  iframe{
+    width:100%;
+    height:100%;
+    border:none;
+  }
+
+  h1{font-size:2.4em;}
+  p{font-size:1.4em;}
 </style>
 </head>
 <body>
-
-<!-- Botón para mostrar contenido y crear corazones -->
-<button id="playButton">❤️ Toca para empezar ❤️</button>
-
-<!-- Reproductor de audio visible y confiable -->
-<audio id="music" controls>
-  <source src="milagro.mp3" type="audio/mpeg">
-  Tu navegador no soporta audio.
-</audio>
 
 <div id="contenido">
   <h1 class="fade delay1">Feliz aniversario mi amor ❤️</h1>
@@ -90,28 +94,34 @@
   <p class="fade delay4">Nos vamos a París 🇫🇷❤️</p>
 </div>
 
-<script>
-const playButton = document.getElementById("playButton");
-const contenido = document.getElementById("contenido");
+<!-- YouTube embebido en contenedor interactivo -->
+<div id="youtubeWrapper">
+  <iframe 
+    id="youtubePlayer"
+    src="https://www.youtube.com/embed/aD0MhjYOsOY?rel=0&autoplay=0&controls=1"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
 
-// Función para crear corazones flotando
+<script>
+// Crear corazones flotando periódicamente
 function createHearts(){
   setInterval(()=>{
     const heart = document.createElement("div");
     heart.classList.add("heart");
     heart.style.left = Math.random()*100 + "vw";
-    heart.style.color = "pink";
     heart.innerHTML = "❤️";
     document.body.appendChild(heart);
     setTimeout(()=>heart.remove(),5000);
-  }, 500);
+  }, 600);
 }
+createHearts();
 
-// Evento de clic en el botón para mostrar contenido y generar corazones
-playButton.addEventListener("click", function(){
-  playButton.style.display = "none";
-  contenido.style.display = "block";
-  createHearts();
+// Expandir reproductor al pulsarlo
+const youtubeWrapper = document.getElementById('youtubeWrapper');
+youtubeWrapper.addEventListener('click', ()=>{
+  youtubeWrapper.classList.add('expanded');
 });
 </script>
 
