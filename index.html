@@ -19,6 +19,7 @@
     display:flex;
     justify-content:center;
     align-items:center;
+    flex-direction:column;
     cursor:pointer;
   }
 
@@ -32,6 +33,7 @@
     color:white;
     box-shadow:0 4px 10px rgba(0,0,0,0.3);
     z-index:10;
+    margin-bottom:20px;
   }
 
   #contenido{
@@ -63,12 +65,23 @@
     50% {transform: translateY(-100px) scale(1.2);}
     100% {transform: translateY(-200px) scale(1);}
   }
+
+  #music{
+    display:block;
+    margin-top:10px;
+  }
 </style>
 </head>
 <body>
 
-<!-- Botón visible para reproducir música -->
-<button id="playButton">🎶 Pulsa aquí para escuchar Milagro 🎶</button>
+<!-- Botón para mostrar contenido y crear corazones -->
+<button id="playButton">❤️ Toca para empezar ❤️</button>
+
+<!-- Reproductor de audio visible y confiable -->
+<audio id="music" controls>
+  <source src="milagro.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio.
+</audio>
 
 <div id="contenido">
   <h1 class="fade delay1">Feliz aniversario mi amor ❤️</h1>
@@ -77,15 +90,9 @@
   <p class="fade delay4">Nos vamos a París 🇫🇷❤️</p>
 </div>
 
-<!-- Audio desde el repositorio -->
-<audio id="music">
-  <source src="milagro.mp3" type="audio/mpeg">
-</audio>
-
 <script>
 const playButton = document.getElementById("playButton");
 const contenido = document.getElementById("contenido");
-const music = document.getElementById("music");
 
 // Función para crear corazones flotando
 function createHearts(){
@@ -100,14 +107,4 @@ function createHearts(){
   }, 500);
 }
 
-// Evento de clic en el botón para reproducir música y mostrar contenido
-playButton.addEventListener("click", function(){
-  music.play().catch(e=>console.log(e));
-  playButton.style.display = "none";
-  contenido.style.display = "block";
-  createHearts();
-});
-</script>
-
-</body>
-</html>
+// Evento de clic en el botón para mostrar contenido y ge
