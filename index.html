@@ -72,20 +72,13 @@
     bottom:15px;
     left:50%;
     transform:translateX(-50%);
-    width:320px; /* tamaño grande visible */
+    width:320px; /* tamaño visible grande */
     height:180px; 
     transition: all 0.6s ease;
-    cursor:pointer;
     z-index:10;
     background-color: black;
     border-radius: 10px;
     overflow: hidden;
-  }
-
-  #youtubeWrapper.expanded{
-    width:90%;
-    max-width:560px;
-    height:auto;
   }
 
   iframe{
@@ -114,18 +107,18 @@
   <p class="fade delay4">Nos vamos a París 🇫🇷❤️</p>
 </div>
 
-<!-- YouTube embebido grande y visible -->
+<!-- YouTube embebido centrado abajo -->
 <div id="youtubeWrapper">
   <iframe 
     id="youtubePlayer"
-    src="https://www.youtube.com/embed/aD0MhjYOsOY?rel=0&autoplay=0&controls=1"
-    allow="autoplay; encrypted-media"
+    src="https://www.youtube.com/embed/MldGX_mbS-o?rel=0&controls=1"
+    allow="encrypted-media"
     allowfullscreen>
   </iframe>
 </div>
 
 <script>
-// Crear corazones flotando
+// Corazones flotando
 function createHearts(){
   const colors = ['#ff4d6d','#ffb3c1','#ff99cc','#ff6666','#ff8080'];
   setInterval(()=>{
@@ -142,17 +135,7 @@ function createHearts(){
 }
 createHearts();
 
-// Expandir reproductor al pulsarlo
-const youtubeWrapper = document.getElementById('youtubeWrapper');
-let expanded = false;
-youtubeWrapper.addEventListener('click', ()=>{
-  if(!expanded){
-    youtubeWrapper.classList.add('expanded');
-    expanded = true;
-  }
-});
-
-// Corazones siguen cursor o dedo
+// Corazones siguen cursor o toque
 document.addEventListener('mousemove', e => {
   const heart = document.createElement("div");
   heart.classList.add("heart");
