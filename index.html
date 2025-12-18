@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Feliz Aniversario ❤️</title>
 <style>
   body{
@@ -27,6 +28,7 @@
     flex-direction:column;
     align-items:center;
     z-index:2;
+    padding: 0 10px;
   }
 
   .fade{
@@ -67,29 +69,36 @@
 
   #youtubeWrapper{
     position:fixed;
-    bottom:20px;
+    bottom:15px;
     left:50%;
     transform:translateX(-50%);
-    width:160px;
-    height:90px;
+    width:140px;
+    height:80px;
     transition: all 0.6s ease;
     cursor:pointer;
     z-index:10;
   }
 
   #youtubeWrapper.expanded{
-    width:560px;
-    height:315px;
+    width:90%;
+    max-width:560px;
+    height:auto;
   }
 
   iframe{
     width:100%;
     height:100%;
+    aspect-ratio:16/9;
     border:none;
   }
 
-  h1{font-size:2.6em; text-shadow: 2px 2px 5px #000;}
-  p{font-size:1.5em; text-shadow: 1px 1px 3px #000;}
+  h1{font-size:2em; text-shadow: 2px 2px 5px #000;}
+  p{font-size:1.2em; text-shadow: 1px 1px 3px #000;}
+
+  @media (max-width: 600px){
+    h1{font-size:1.6em;}
+    p{font-size:1em;}
+  }
 </style>
 </head>
 <body>
@@ -101,52 +110,8 @@
   <p class="fade delay4">Nos vamos a París 🇫🇷❤️</p>
 </div>
 
-<!-- YouTube embebido en contenedor interactivo -->
+<!-- YouTube embebido interactivo -->
 <div id="youtubeWrapper">
   <iframe 
     id="youtubePlayer"
-    src="https://www.youtube.com/embed/aD0MhjYOsOY?rel=0&autoplay=0&controls=1"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
-</div>
-
-<script>
-// Crear corazones con diferentes colores y tamaños
-function createHearts(){
-  const colors = ['#ff4d6d','#ffb3c1','#ff99cc','#ff6666','#ff8080'];
-  setInterval(()=>{
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.fontSize = (Math.random()*30+20)+"px";
-    heart.style.color = colors[Math.floor(Math.random()*colors.length)];
-    heart.style.animationDuration = (Math.random()*3+4)+"s";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),7000);
-  }, 400);
-}
-createHearts();
-
-// Expandir reproductor al pulsarlo y fade-in de la música
-const youtubeWrapper = document.getElementById('youtubeWrapper');
-let expanded = false;
-youtubeWrapper.addEventListener('click', ()=>{
-  if(!expanded){
-    youtubeWrapper.classList.add('expanded');
-    expanded = true;
-
-    // Intentar iniciar audio con fade-in
-    const iframe = document.getElementById('youtubePlayer');
-    const iframeWindow = iframe.contentWindow;
-
-    // Mensaje a YouTube API para reproducir (solo funciona si la política del navegador lo permite)
-    // En móviles y Chrome se requiere interacción manual
-    // Por eso el usuario deberá pulsar Play en el iframe
-  }
-});
-</script>
-
-</body>
-</html>
+    src="https://www.youtu
