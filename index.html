@@ -15,43 +15,17 @@
       url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34');
     background-size:cover;
     background-position:center;
-    overflow:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    cursor:pointer;
-  }
-
-  #playButton{
-    font-size:2em;
-    padding:20px 40px;
-    border:none;
-    border-radius:15px;
-    cursor:pointer;
-    background-color:#ff4d6d;
-    color:white;
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
-    z-index:10;
-    margin-bottom:20px;
+    overflow:hidden;
   }
 
   #contenido{
-    display:none;
-    padding:20px;
-  }
-
-  .fade{
     opacity:0;
-    animation: fadeIn 2s forwards;
+    animation:fadeIn 1s forwards 0.5s;
   }
-  .delay1{animation-delay:0.5s;}
-  .delay2{animation-delay:2.5s;}
-  .delay3{animation-delay:4.5s;}
-  .delay4{animation-delay:6.5s;}
-  @keyframes fadeIn{to{opacity:1}}
-  h1{font-size:2.4em;}
-  p{font-size:1.4em;}
 
   .heart{
     position:absolute;
@@ -60,51 +34,53 @@
     pointer-events:none;
     opacity:0.8;
   }
+
+  @keyframes fadeIn{to{opacity:1}}
   @keyframes floatUp{
     0% {transform: translateY(0) scale(1);}
     50% {transform: translateY(-100px) scale(1.2);}
     100% {transform: translateY(-200px) scale(1);}
   }
 
-  #music{
-    display:block;
-    margin-top:10px;
+  iframe{
+    position:fixed;
+    bottom:10px;
+    width:320px;
+    height:180px;
+    border:none;
   }
 </style>
 </head>
 <body>
 
-<!-- Botón para mostrar contenido y crear corazones -->
-<button id="playButton">❤️ Toca para empezar ❤️</button>
-
-<!-- Reproductor de audio visible y confiable -->
-<audio id="music" controls>
-  <source src="milagro.mp3" type="audio/mpeg">
-  Tu navegador no soporta audio.
-</audio>
-
 <div id="contenido">
-  <h1 class="fade delay1">Feliz aniversario mi amor ❤️</h1>
-  <p class="fade delay2">14 de Febrero de 2026</p>
-  <p class="fade delay3">Apunta la fecha en tu calendario</p>
-  <p class="fade delay4">Nos vamos a París 🇫🇷❤️</p>
+  <h1>Feliz aniversario mi amor ❤️</h1>
+  <p>14 de Febrero de 2026</p>
+  <p>Apunta la fecha en tu calendario</p>
+  <p>Nos vamos a París 🇫🇷❤️</p>
 </div>
 
-<script>
-const playButton = document.getElementById("playButton");
-const contenido = document.getElementById("contenido");
+<!-- YouTube embebido para “Segundo amor” -->
+<iframe 
+  src="https://www.youtube.com/embed/aD0MhjYOsOY?rel=0&autoplay=0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
 
-// Función para crear corazones flotando
+<script>
+// crear corazones flotando periódicamente
 function createHearts(){
   setInterval(()=>{
     const heart = document.createElement("div");
     heart.classList.add("heart");
     heart.style.left = Math.random()*100 + "vw";
-    heart.style.color = "pink";
     heart.innerHTML = "❤️";
     document.body.appendChild(heart);
     setTimeout(()=>heart.remove(),5000);
-  }, 500);
+  }, 600);
 }
+createHearts();
+</script>
 
-// Evento de clic en el botón para mostrar contenido y ge
+</body>
+</html>
