@@ -107,4 +107,56 @@
 <div id="youtubeWrapper">
   <iframe 
     id="youtubePlayer"
-    src="https://www.youtub
+    src="https://www.youtube.com/embed/MldGX_mbS-o?rel=0&controls=1"
+    allow="encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<script>
+// Corazones flotando aleatoriamente
+function createHearts(){
+  const colors = ['#ff4d6d','#ffb3c1','#ff99cc','#ff6666','#ff8080'];
+  setInterval(()=>{
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*25+15)+"px";
+    heart.style.color = colors[Math.floor(Math.random()*colors.length)];
+    heart.style.animationDuration = (Math.random()*3+4)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),7000);
+  }, 400);
+}
+createHearts();
+
+// Corazones siguen cursor o toque
+document.addEventListener('mousemove', e => {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = (e.clientX + Math.random()*30-15) + "px";
+  heart.style.top = (e.clientY + Math.random()*30-15) + "px";
+  heart.style.fontSize = (Math.random()*20+10)+"px";
+  heart.style.color = ['#ff4d6d','#ffb3c1','#ff99cc','#ff6666','#ff8080'][Math.floor(Math.random()*5)];
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),2000);
+});
+
+document.addEventListener('touchmove', e => {
+  const touch = e.touches[0];
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = (touch.clientX + Math.random()*30-15) + "px";
+  heart.style.top = (touch.clientY + Math.random()*30-15) + "px";
+  heart.style.fontSize = (Math.random()*20+10)+"px";
+  heart.style.color = ['#ff4d6d','#ffb3c1','#ff99cc','#ff6666','#ff8080'][Math.floor(Math.random()*5)];
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),2000);
+});
+</script>
+
+</body>
+</html>
