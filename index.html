@@ -22,7 +22,6 @@
     cursor:pointer;
   }
 
-  /* Botón de reproducción grande */
   #playButton{
     font-size:2em;
     padding:20px 40px;
@@ -51,7 +50,6 @@
   h1{font-size:2.4em;}
   p{font-size:1.4em;}
 
-  /* Corazones flotando */
   .heart{
     position:absolute;
     font-size:2em;
@@ -80,7 +78,7 @@
 </div>
 
 <audio id="music">
-  <source src="https://files.catbox.moe/9v1n7e.mp3" type="audio/mpeg">
+  <source src="milagro.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -96,7 +94,6 @@ playButton.addEventListener("click", function(){
   createHearts();
 });
 
-// Función para crear corazones flotando
 function createHearts(){
   setInterval(()=>{
     const heart = document.createElement("div");
