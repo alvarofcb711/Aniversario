@@ -18,16 +18,26 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    cursor:pointer;
   }
   #tap{
     position:fixed;
     inset:0;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    font-size:2.5em;
+    font-size:2em;
     background: rgba(0,0,0,0.5);
+    gap:20px;
+  }
+  #playButton{
+    font-size:1.5em;
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background-color:#ff4d6d;
+    color:white;
   }
   #contenido{
     display:none;
@@ -40,35 +50,4 @@
   .delay1{animation-delay:0.5s;}
   .delay2{animation-delay:2.5s;}
   .delay3{animation-delay:4.5s;}
-  .delay4{animation-delay:6.5s;}
-  @keyframes fadeIn{to{opacity:1}}
-  h1{font-size:2.4em;}
-  p{font-size:1.4em;}
-</style>
-</head>
-<body>
-
-<div id="tap">Toca la pantalla ❤️</div>
-
-<div id="contenido">
-  <h1 class="fade delay1">Feliz aniversario mi amor ❤️</h1>
-  <p class="fade delay2">14 de Febrero de 2026</p>
-  <p class="fade delay3">Apunta la fecha en tu calendario</p>
-  <p class="fade delay4">Nos vamos a París 🇫🇷❤️</p>
-</div>
-
-<audio id="music">
-  <source src="https://files.catbox.moe/9v1n7e.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  // Primer toque en cualquier parte de la página inicia la música
-  document.body.addEventListener("click", function(){
-    document.getElementById("music").play();
-    document.getElementById("tap").style.display = "none";
-    document.getElementById("contenido").style.display = "block";
-  }, { once: true });
-</script>
-
-</body>
-</html>
+  .delay4{animation-delay:6.
